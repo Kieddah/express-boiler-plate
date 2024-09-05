@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 5000
 
 # Define the command to start your app
-CMD ["node", "app.js"]
+CMD ["npm", "run", "dev"]
+

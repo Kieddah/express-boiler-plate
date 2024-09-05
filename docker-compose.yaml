@@ -1,0 +1,23 @@
+services:
+  app:
+    build: .
+    container_name: express-app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules # Prevent mounting local node_modules
+    env_file:
+      - .env  
+    command: npm run dev
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
